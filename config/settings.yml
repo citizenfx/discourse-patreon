@@ -12,6 +12,8 @@ plugins:
     default: ''
   patreon_webhook_secret:
     default: ''
+  patreon_sync_secret:
+    default: ''
   patreon_creator_discourse_username:
     default: ''
     type: username

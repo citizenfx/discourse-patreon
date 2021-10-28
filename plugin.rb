@@ -74,6 +74,7 @@ after_initialize do
   [
     '../app/controllers/patreon_admin_controller.rb',
     '../app/controllers/patreon_webhook_controller.rb',
+    '../app/controllers/patreon_sync_controller.rb',
     '../app/jobs/regular/sync_patron_groups.rb',
     '../app/jobs/scheduled/patreon_sync_patrons_to_groups.rb',
     '../app/jobs/scheduled/patreon_update_tokens.rb',
@@ -96,6 +97,7 @@ after_initialize do
     post '/sync_groups' => 'patreon_admin#sync_groups', constraints: AdminConstraint.new
     post '/update_data' => 'patreon_admin#update_data', constraints: AdminConstraint.new
     post '/webhook' => 'patreon_webhook#index'
+    get '/sync_user/:patreon_id' => 'patreon_sync#index'
   end
 
   Discourse::Application.routes.prepend do
